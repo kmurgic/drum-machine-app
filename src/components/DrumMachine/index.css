@@ -1,0 +1,13 @@
+.drum-machine {
+  width: 400px;
+  margin: 20px auto;
+  height: 500px;
+  background-color: #333;
+  border: 2px solid black;
+  border-radius: 36px;
+  color: black;
+}
+
+.drum-machine_title {
+  color: #000000;
+}
