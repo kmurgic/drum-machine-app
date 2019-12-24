@@ -5,7 +5,7 @@ class DrumMachineContainer extends Component {
 
   state = { lastSound: '' };
 
-  changeLastSound = (lastSound) => {
+  changeLastSound = (lastSound: string) => {
     console.log('changing sound')
     this.setState({ lastSound });
   };

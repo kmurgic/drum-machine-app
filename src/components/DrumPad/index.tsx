@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import DrumPad from './DrumPad';
+import { soundChanger } from '../DrumMachine/DrumMachine';
 
-class DrumPadContainer extends Component {
+interface DrumPadContainerProps extends soundChanger {
+  keyName: string,
+  name: string,
+  sound: string,
+}
 
+class DrumPadContainer extends Component<DrumPadContainerProps> {
   state = { isActive: false };
-  audioRef = React.createRef();
+  private audioRef = React.createRef<HTMLAudioElement>();
 
   componentDidMount() {
     window.addEventListener('keydown', e => {
@@ -20,11 +26,13 @@ class DrumPadContainer extends Component {
     });
   };
 
-  play = () => {
+  play = (e?: HTMLAudioElement) => {
     const audio = this.audioRef.current;
-    audio.currentTime = 0;
-    audio.play();
-    this.props.changeLastSound(this.props.name);
+    if (audio) {
+      audio.currentTime = 0;
+      audio.play();
+      this.props.changeLastSound(this.props.name);
+    }
   }
 
   render() {
@@ -32,8 +40,7 @@ class DrumPadContainer extends Component {
 
     return (
       <DrumPad
-        audioRef={this.audioRef}
-        changeLastSound={this.props.changeLastSound}
+        ref={this.audioRef}
         className={className}
         keyName={this.props.keyName}
         play={this.play}

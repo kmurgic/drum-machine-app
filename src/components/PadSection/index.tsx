@@ -1,9 +1,9 @@
 import React from 'react';
 import DrumPad from '../DrumPad';
 import './index.css';
+import { soundChanger } from '../DrumMachine/DrumMachine';
 
-
-const PadSection = ({ changeLastSound }) => {
+const PadSection = ({ changeLastSound }: soundChanger) => {
   const drumPads = [
     { sound: 'Chord_1.mp3', name: 'Chord 1', id: 'chord-1', keyName: 'Q' },
     { sound: 'Chord_2.mp3', name: 'Chord 2', id: 'chord-2', keyName: 'W' },

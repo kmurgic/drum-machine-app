@@ -1,9 +1,18 @@
 import React from 'react';
 import './index.css';
 
-const DrumPad = props => {
+interface DrumPadProps {
+  className: string;
+  keyName: string;
+  play: () => void;
+  sound: string;
+}
+
+type DrumPadRef = HTMLAudioElement;
+
+const DrumPad = React.forwardRef<DrumPadRef, DrumPadProps>((props, audioRef) => {
   const {
-    audioRef, className, keyName, play, sound,
+    className, keyName, play, sound,
   } = props;
 
   return (
@@ -19,6 +28,6 @@ const DrumPad = props => {
       />
     </div>
   )
-}
+});
 
 export default DrumPad;
