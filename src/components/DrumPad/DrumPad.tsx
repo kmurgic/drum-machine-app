@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './index.css';
 
 interface DrumPadProps {
@@ -10,7 +10,7 @@ interface DrumPadProps {
 
 type DrumPadRef = HTMLAudioElement;
 
-const DrumPad = React.forwardRef<DrumPadRef, DrumPadProps>((props, audioRef) => {
+const DrumPad = forwardRef<DrumPadRef, DrumPadProps>((props, audioRef) => {
   const {
     className, keyName, play, sound,
   } = props;
