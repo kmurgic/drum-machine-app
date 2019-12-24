@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './index.css';
 
-const DrumPad = props => {
+const DrumPad = forwardRef((props, audioRef) => {
   const {
-    audioRef, className, keyName, play, sound,
+    className, keyName, play, sound,
   } = props;
 
   return (
@@ -19,6 +19,6 @@ const DrumPad = props => {
       />
     </div>
   )
-}
+});
 
 export default DrumPad;

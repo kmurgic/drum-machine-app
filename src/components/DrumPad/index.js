@@ -32,7 +32,7 @@ class DrumPadContainer extends Component {
 
     return (
       <DrumPad
-        audioRef={this.audioRef}
+        ref={this.audioRef}
         changeLastSound={this.props.changeLastSound}
         className={className}
         keyName={this.props.keyName}
